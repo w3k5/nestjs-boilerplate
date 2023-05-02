@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
-import { AppService } from './app.service';
+import { EnvironmentModule } from '@configuration/environment/environment.module';
 import { AppController } from './app.controller';
-import { EnvironmentModule } from './configuration/environment/environment.module';
+import { AppService } from './app.service';
 
 @Module({
   imports: [EnvironmentModule],
