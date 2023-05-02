@@ -54,7 +54,7 @@ module.exports = {
           'index', // <- index imports
           'unknown', // <- unknown
         ],
-        // 'newlines-between': 'always',
+        'newlines-between': 'always',
         alphabetize: {
           /* sort in ascending order. Options: ["ignore", "asc", "desc"] */
           order: 'asc',
