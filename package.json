@@ -2,7 +2,7 @@
   "name": "nestjs-boilerplate",
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "Vladislav Marchenko",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
@@ -25,8 +25,11 @@
     "@nestjs/config": "^2.3.1",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
+    "@nestjs/typeorm": "^9.0.1",
+    "pg": "^8.10.0",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.2.0"
+    "rxjs": "^7.2.0",
+    "typeorm": "^0.3.15"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",

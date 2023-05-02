@@ -25,7 +25,10 @@ module.exports = {
     "import/resolver": {
       "node": {
         "extensions": [".js", ".ts"]
-      }
+      },
+      typescript: {
+        project: './tsconfig.json',
+      },
     }
   },
   ignorePatterns: ['.eslintrc.js'],
@@ -40,17 +43,35 @@ module.exports = {
       'warn',
       { 'vars': 'all', 'varsIgnorePattern': '^_', 'args': 'after-used', 'argsIgnorePattern': '^_' }
     ],
-    'import/order': ['error',
-      { "groups":
-          [
-            "external",
-            "builtin",
-            "internal",
-            "sibling",
-            "parent",
-            "index"
-          ],
-      }
+    'import/order': [
+      'error',
+      {
+        groups: [
+          'builtin', // Built-in imports (come from NodeJS native) go first
+          'external', // <- External imports
+          'internal', // <- Absolute imports
+          ['sibling', 'parent'], // <- Relative imports, the sibling and parent types they can be mingled together
+          'index', // <- index imports
+          'unknown', // <- unknown
+        ],
+        // 'newlines-between': 'always',
+        alphabetize: {
+          /* sort in ascending order. Options: ["ignore", "asc", "desc"] */
+          order: 'asc',
+          /* ignore case. Options: [true, false] */
+          caseInsensitive: true,
+        },
+      },
+    ],
+    'sort-imports': [
+      'error',
+      {
+        ignoreCase: false,
+        ignoreDeclarationSort: true,
+        ignoreMemberSort: false,
+        memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+        allowSeparatedGroups: true,
+      },
     ]
   },
 };
